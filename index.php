@@ -18,11 +18,25 @@
   <title>PHP-OOP-1</title>
 </head>
 <body>
-  <div class="container">
+  <div class="container my-5">
+    <div class="row">
 
+      <?php foreach($movies as $movie): ?>
+      <div class="col">
 
+      <div class="card" style="width: 18rem;">
+        <img src="img/<?php echo $movie->movie_poster->poster_file ?>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $movie->title ?></h5>
+          <p class="card-text"><strong>Genere: </strong> <?php echo implode(", " , $movie->genre) ?></p>
+          <p class="card-text"><strong>Cast: </strong> <?php echo implode(", " , $movie->cast) ?></p>
+        </div>
+      </div>
 
-  
+      </div>
+      <?php endforeach; ?>
+
+    </div>
   </div>
   
 </body>
