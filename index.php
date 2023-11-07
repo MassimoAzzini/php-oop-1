@@ -1,6 +1,8 @@
 <?php 
 
+  require_once __DIR__ . '/Model/Production.php';
   require_once __DIR__ . '/Model/Movie.php';
+  require_once __DIR__ . '/Model/TVSerie.php';
   require_once __DIR__ . '/Model/Poster.php';
   require_once __DIR__ . '/db/db.php';
 
@@ -21,15 +23,27 @@
   <div class="container my-5">
     <div class="row">
 
-      <?php foreach($movies as $movie): ?>
+      <?php foreach($productions as $production): ?>
       <div class="col">
 
       <div class="card" style="width: 18rem;">
-        <img src="img/<?php echo $movie->movie_poster->poster_file ?>" class="card-img-top" alt="...">
+        <img src="img/<?php echo $production->poster->poster_file ?>" class="card-img-top" alt="<?php echo $production->poster->poster_name ?>">
         <div class="card-body">
-          <h5 class="card-title"><?php echo $movie->title ?></h5>
-          <p class="card-text"><strong>Genere: </strong> <?php echo implode(", " , $movie->genre) ?></p>
-          <p class="card-text"><strong>Cast: </strong> <?php echo implode(", " , $movie->cast) ?></p>
+          <h5 class="card-title"><?php echo $production->title ?></h5>
+          <p class="card-text"><strong>Genere: </strong> <?php echo implode(", " , $production->genre) ?></p>
+          <p class="card-text"><strong>Cast: </strong> <?php echo implode(", " , $production->cast) ?></p>
+          <?php if(get_class($production) == 'Movie'): ?>
+
+            <p class="card-text"><strong>MOVIE</strong></p>
+
+          <?php else: ?>
+
+            <p class="card-text"><strong>TVSerie</strong></p>
+
+          <?php endif; ?>
+
+
+
         </div>
       </div>
 
