@@ -12,9 +12,13 @@ class TVSerie extends Production {
     parent::__construct( $_title,  $_genre,  $_cast, $_image);
   
     $this->aired_from_year = $_aired_from_year;
-    $this->aired_to_year = $_aired_to_year;
+    $this->aired_to_year = $_aired_to_year == 0 ? 'In produzione' : $_aired_to_year;
     $this->number_of_episodes = $_number_of_episodes;
     $this->number_of_seasons = $_number_of_seasons;
+  }
+
+  public function getProductionDuration(){
+    return "$this->aired_from_year - $this->aired_to_year";
   }
 }
 

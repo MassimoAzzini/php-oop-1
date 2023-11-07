@@ -29,16 +29,20 @@
       <div class="card" style="width: 18rem;">
         <img src="img/<?php echo $production->poster->poster_file ?>" class="card-img-top" alt="<?php echo $production->poster->poster_name ?>">
         <div class="card-body">
-          <h5 class="card-title"><?php echo $production->title ?></h5>
+          <h5 class="card-title fw-bold text-center"><?php echo $production->title ?></h5>
           <p class="card-text"><strong>Genere: </strong> <?php echo implode(", " , $production->genre) ?></p>
           <p class="card-text"><strong>Cast: </strong> <?php echo implode(", " , $production->cast) ?></p>
           <?php if(get_class($production) == 'Movie'): ?>
 
-            <p class="card-text"><strong>MOVIE</strong></p>
+            <p class="card-text"><strong>Anno:</strong> <?php echo $production->published_year ?></p>
+            <p class="card-text"><strong>Durata:</strong> <?php echo $production->runnning_time ?></p>
 
           <?php else: ?>
 
-            <p class="card-text"><strong>TVSerie</strong></p>
+            <p class="card-text"><strong>Anno:</strong> <?php echo $production->getProductionDuration() ?></p>
+            <p class="card-text"><strong>Episodi:</strong> <?php echo $production->number_of_episodes ?></p>
+            <p class="card-text"><strong>Stagioni:</strong> <?php echo $production->number_of_seasons ?></p>
+            
 
           <?php endif; ?>
 
