@@ -26,9 +26,11 @@
       <?php foreach($productions as $production): ?>
       <div class="col">
 
-      <div class="card bg-black text-white" style="width: 18rem;">
-        <img class="" src="img/<?php echo $production->poster->poster_file ?>" class="card-img-top" alt="<?php echo $production->poster->poster_name ?>">
-        <div class="card-body">
+      <div class="card bg-black text-white mb-3" style="width: 18rem;">
+        <div style="height: 380px" class="overflow-hidden d-flex justify-content-center align-items-center">
+          <img class="w-100 h-100 object-fit-contain" src="img/<?php echo $production->poster->poster_file ?>" class="card-img-top" alt="<?php echo $production->poster->poster_name ?>">
+        </div>
+        <div style="font-size: 0.8rem; height: 210px;" class="card-body overflow-auto">
           <h5 class="card-title fw-bold text-center"> <?php echo $production->title ?></h5>
           <p class="card-text"><strong>Genere: </strong> <?php echo implode(", " , $production->genre) ?></p>
           <p class="card-text"><strong>Cast: </strong> <?php echo implode(", " , $production->cast) ?></p>
