@@ -11,14 +11,16 @@ class TVSerie extends Production {
     
     parent::__construct( $_title,  $_genre,  $_cast, $_image);
 
-    if(!is_numeric($this->aired_from_year) | !is_numeric($this->aired_to_year)) {
+    if(!is_numeric($_aired_from_year) | !is_numeric($_aired_to_year)) {
 
       throw new Exception("Devi inserire un valore numerico come anno di produzione");
 
+    }else{
+
+      $this->aired_from_year = $_aired_from_year;
+      $this->aired_to_year = $_aired_to_year == 0 ? 'In produzione' : $_aired_to_year;
     }
   
-    $this->aired_from_year = $_aired_from_year;
-    $this->aired_to_year = $_aired_to_year == 0 ? 'In produzione' : $_aired_to_year;
     $this->number_of_episodes = $_number_of_episodes;
     $this->number_of_seasons = $_number_of_seasons;
   }

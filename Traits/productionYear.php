@@ -12,22 +12,14 @@ trait productionYear{
     // }
 
     if(isset($this->published_year)){
-
-      if(!is_numeric($this->published_year)) {
-
-        throw new Exception("Devi inserire un valore numerico come anno di produzione");
-      
-      }else{
         
         return $this->published_year;
-      }
-  
-
+      
 
     }else if(isset($this->aired_from_year) && isset($this->aired_to_year)){
 
         return "$this->aired_from_year - $this->aired_to_year";
-        
+
     }
   }
 
