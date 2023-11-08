@@ -2,7 +2,8 @@
 
 class Movie extends Production {
 
-  public $published_year;
+  use productionYear;
+  
   public $runnning_time;
 
   public function __construct(string $_title, array $_genre, array $_cast, Poster $_image=null, int $_published_year, string $_runnning_time) {
