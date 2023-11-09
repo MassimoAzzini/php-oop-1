@@ -10,10 +10,8 @@ try {
   require_once __DIR__ . '/db/db.php';
 
 } catch (Exception $e) {
-
-  $errore = $e->getMessage();
-
-} 
+  $error = $e->getMessage();
+}
 
 ?>
 
@@ -53,7 +51,7 @@ try {
             <p class="card-text"><strong>Cast: </strong> <?php echo implode(", " , $production->cast) ?></p>
             <?php if(get_class($production) == 'Movie'): ?>
 
-              <p class="card-text"><strong>Anno:</strong> <?php echo $production->published_year ?></p>
+              <p class="card-text"><strong>Anno:</strong> <?php echo $production->getStringYear() ?></p>
               <p class="card-text"><strong>Durata:</strong> <?php echo $production->runnning_time ?></p>
 
             <?php else: ?>

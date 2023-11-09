@@ -7,13 +7,13 @@ class TVSerie extends Production {
   public $number_of_episodes;
   public $number_of_seasons;
 
-  public function __construct(string $_title, array $_genre, array $_cast, Poster $_image=null, int $_aired_from_year, int $_aired_to_year, int $_number_of_episodes, int $_number_of_seasons) {
+  public function __construct(string $_title, array $_genre, array $_cast, Poster $_image=null, $_aired_from_year, $_aired_to_year, int $_number_of_episodes, int $_number_of_seasons) {
     
     parent::__construct( $_title,  $_genre,  $_cast, $_image);
 
     if(!is_numeric($_aired_from_year) | !is_numeric($_aired_to_year)) {
 
-      throw new Exception("Devi inserire un valore numerico come anno di produzione");
+      throw new Exception("Devi inserire un valori numerico come anno di produzione del primo e ultimo episodio");
 
     }else{
 
